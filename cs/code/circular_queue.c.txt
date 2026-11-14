@@ -1,0 +1,28 @@
+global TheArray,HeadPointer,TailPointer,max,value
+TheArray = [""] * 5
+HeadPointer = 0
+TailPointer = 0
+max = 5
+
+def Enqueue(value):
+    global TheArray,HeadPointer,TailPointer,max
+    if (HeadPointer == TailPointer) and (TheArray[HeadPointer] != ""):
+        print('Array Full, Cannot Add')
+    else:
+        TheArray[TailPointer] = value
+        print(TheArray)
+        TailPointer += 1
+        if TailPointer == max:
+            TailPointer = 0
+
+def Dequeue():
+    global TheArray,HeadPointer,TailPointer,max
+    if (HeadPointer==TailPointer) and (TheArray[HeadPointer] == ""):
+        print("Empty, so we cant remove")
+    else:
+        removed = TheArray[HeadPointer]
+        TheArray[HeadPointer] = ""
+        print(f"{TheArray[HeadPointer]} was removed")
+        HeadPointer += 1
+        if HeadPointer == max:
+            HeadPointer = 0
